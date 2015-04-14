@@ -1,4 +1,4 @@
-package com.nullcognition.javaregularexpressions;
+package com.nullcognition.javaregularexpressions.chapter01;
 
 import android.os.PatternMatcher;
 
