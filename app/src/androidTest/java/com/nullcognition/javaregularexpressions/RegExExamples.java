@@ -44,6 +44,21 @@ public class RegExExamples extends TestCase {
 //http://weiyang.wordpress.ncsu.edu/2013/04/11/a-limitation-in-intent-filter-of-android-application/
 	  // .* was a greedy search,taking all of the letters prior to the postfix, however as patternsimpleglob states, it will only take a character
 	  // (.)*\.mytype should work for anything prior to .mytype but it does not
+
+//https://docs.oracle.com/javase/tutorial/essential/regex/quant.html
+//	  see this document to learn Differences Among Greedy, Reluctant, and Possessive Quantifiers, which explains the above reasoning
    }
 
+   public void testBoundaries(){
+
+	  boolean p = Pattern.matches("\\p{Lower}\\t\\d\\b", "a	2");
+	  assertEquals(true, p);
+   }
+
+   public void testMatcherClass(){
+
+	  Pattern p = Pattern.compile("(...){2}");
+	  Matcher m = p.matcher("inpinp");
+
+   }
 }
