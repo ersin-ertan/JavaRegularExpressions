@@ -98,6 +98,23 @@ public class AdvancedRegex extends AndroidTestCase {
 
    public void testLookarounds(){
 
+	  String input = "abc255.0.0.1";
+
+	  Matcher matcher = null; // error of matcher was not initialized
+
+	  assertEquals(input, matcherHelper(".*(?=255).*", input, matcher).group()); // ?= positive look ahead
+	  assertEquals(input, matcherHelper(".*(?!251).*", input, matcher).group()); // ?! negative look ahead
+
+	  // positive and negative lookbehinds, ?<= ?<! to match right before the pattern, need to find in what case this would be
+	  // look-behind expressions cannot be of variable length. That means you cannot use quantifiers (?, *, +, or {1,5}) or
+	  // alternation of different-length items inside them.
+
    }
 
+   public Matcher matcherHelper(String pattern, String inputText, Matcher matcher){
+
+	  matcher = (Pattern.compile(pattern)).matcher(inputText);
+	  matcher.find();
+	  return matcher;
+   }
 }
